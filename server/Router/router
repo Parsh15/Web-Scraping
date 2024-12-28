@@ -1,0 +1,92 @@
+const express=require("express")
+const user=require("../models/user")
+const {v4:uuidv4}=require('uuid')
+const {setuser,getuser}=require("../service/auth")
+const url=require("../models/userdata")
+const router=express.Router()
+
+router.post("/",async (req,res)=>{
+const body=req.body
+const user1=await user.create({
+    username:body.username,
+    email:body.email,
+    password:body.password
+})
+res.json(user1)
+
+
+})
+
+router.post("/login",async(req,res)=>{
+    const user2=req.body
+    const user1=await user.findOne({
+        email:user2.email,
+        password:user2.password
+    })
+    if(!user1){
+        console.log("we")
+        res.status(401).json({ms:"Invalid email or password"})
+    }
+
+    else{
+        const sessionId=uuidv4()
+        setuser(sessionId,user1)
+        res.cookie("uid",sessionId)
+        const userurl=await url.find({created_by:user1._id})
+        if(userurl){
+            get(user1,userurl,res)
+        }
+        else{
+           
+            res.json({
+                username:user1.username,
+                email:user1.email,
+                terms:[]
+
+            })
+        }
+      
+    }
+
+})
+
+function get(user1,userurl,res){
+    const arr=[]
+    userurl.forEach(element => {
+        arr.push([element.dataset_name,element.rows.length])
+    });
+    const result={
+        username:user1.username,
+        email:user1.email,
+        terms:arr
+    }
+    console.log(result)
+    res.json(result)
+}
+
+
+router.post("/home",async(req,res)=>{
+
+    const id = req.cookies.uid;  
+    const user = await getuser(id);  
+  
+        const userurl=await url.find({created_by:user._id})
+        if(userurl){
+            get(user,userurl,res)
+        }
+        else{
+           
+            res.json({
+                username:user.username,
+                email:user.email,
+                terms:[]
+
+            })
+        }
+      
+    }
+
+)
+
+
+module.exports=router

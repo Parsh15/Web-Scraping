@@ -1,0 +1,88 @@
+.signuppage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #74ebd5, #9face6);
+  padding: 1rem; 
+}
+.signuppage form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; 
+  box-sizing: border-box;
+}
+
+.signuppage input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signuppage input:focus {
+  border-color: #74ebd5;
+  outline: none;
+  box-shadow: 0 0 8px rgba(116, 235, 213, 0.5);
+}
+
+.signuppage button {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(120deg, #74ebd5, #9face6);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.signuppage button:hover {
+  background: linear-gradient(120deg, #9face6, #74ebd5);
+  transform: scale(1.05); 
+}
+
+.signuppage button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(116, 235, 213, 0.6);
+}
+
+.signuppage p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.signuppage p a {
+  color: #74ebd5;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.signuppage p a:hover {
+  color: #9face6;
+}
+
+@media (max-width: 480px) {
+  .signuppage form {
+    padding: 1.5rem;
+    width: 90%;
+  }
+
+  .signuppage input,
+  .signuppage button {
+    font-size: 0.9rem; 
+  }
+}

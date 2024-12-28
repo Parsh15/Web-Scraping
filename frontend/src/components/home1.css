@@ -1,0 +1,72 @@
+.columns, .dynamic-input {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    font-size: 1.2rem;
+    border: 1px solid #ddd;
+    transition: border 0.3s ease-in-out;
+}
+
+.columns:focus, .dynamic-input:focus {
+    outline: none;
+    border-color: #1a73e8;
+}
+
+
+.submit-button {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #0c58c7;
+}
+
+.first {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    gap: 20px;
+    width: 100%;
+    padding-top: 60px; 
+}
+
+
+.title {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#sub2 {
+    color: #1a73e8;
+    margin-bottom: 10px;
+}
+
+#sub {
+    color: #333;
+}
+
+.column7s {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
